@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationService", "AuthenticationService\AuthenticationService.csproj", "{11FC2D45-A037-4A7A-8684-CA9873953C97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vault", "Vault\Vault.csproj", "{4258D144-6F5D-49AE-A6D4-B1EB524A6EED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderProcessingService", "OrderProcessingService\OrderProcessingService.csproj", "{CA9595CB-7892-482C-B5AD-C35A68E803D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11FC2D45-A037-4A7A-8684-CA9873953C97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11FC2D45-A037-4A7A-8684-CA9873953C97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11FC2D45-A037-4A7A-8684-CA9873953C97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11FC2D45-A037-4A7A-8684-CA9873953C97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4258D144-6F5D-49AE-A6D4-B1EB524A6EED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4258D144-6F5D-49AE-A6D4-B1EB524A6EED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4258D144-6F5D-49AE-A6D4-B1EB524A6EED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4258D144-6F5D-49AE-A6D4-B1EB524A6EED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA9595CB-7892-482C-B5AD-C35A68E803D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA9595CB-7892-482C-B5AD-C35A68E803D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA9595CB-7892-482C-B5AD-C35A68E803D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA9595CB-7892-482C-B5AD-C35A68E803D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

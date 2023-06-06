@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "c8601f1a-d952-456e-a441-3402b3b253e7",
+		"name": "RestaurantAuthenticationService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "22798206"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Role\": 3,\n    \"Login\": \"manager@mail.com\",\n    \"Username\": \"manager\",\n    \"Password\": \"Passw0rd\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://{{Host}}:{{AuthServicePort}}/user/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{Token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://{{Host}}:{{AuthServicePort}}/user/info"
+			},
+			"response": []
+		},
+		{
+			"name": "Authorize",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Login\": \"manager@mail.com\",\n    \"Password\": \"Passw0rd\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://{{Host}}:{{AuthServicePort}}/user/authorize"
+			},
+			"response": []
+		}
+	]
+}

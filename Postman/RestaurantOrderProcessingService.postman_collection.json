@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "a74190c3-238b-4d66-94fd-7d36853bc6f0",
+		"name": "RestaurantOrderProcessingService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "22798206"
+	},
+	"item": [
+		{
+			"name": "GetDish",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{Token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{Host}}:{{OrderProcessingServicePort}}/dish/get?id=1",
+					"protocol": "http",
+					"host": [
+						"{{Host}}"
+					],
+					"port": "{{OrderProcessingServicePort}}",
+					"path": [
+						"dish",
+						"get"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddDish",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{Token}}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Name\": \"pasta\",\n    \"Price\": 12,\n    \"Quantity\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://{{Host}}:{{OrderProcessingServicePort}}/dish/add"
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateDish",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{Token}}"
+					}
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Id\": 1,\n    \"Name\": \"pizza\",\n    \"Price\": 17.5,\n    \"Quantity\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://{{Host}}:{{OrderProcessingServicePort}}/dish/update"
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteDish",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{Token}}"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "1",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://{{Host}}:{{OrderProcessingServicePort}}/dish/delete"
+			},
+			"response": []
+		},
+		{
+			"name": "GetMenu",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{Token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://{{Host}}:{{OrderProcessingServicePort}}/dish/menu"
+			},
+			"response": []
+		},
+		{
+			"name": "PlaceOrder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{Token}}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 1,\n    \"dishes\": [\n        {\n            \"dish_id\": 1,\n            \"quantity\": 1\n        }\n    ],\n    \"special_requests\": \"as soon as possible\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://{{Host}}:{{OrderProcessingServicePort}}/order/place"
+			},
+			"response": []
+		},
+		{
+			"name": "GetOrder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{Token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{Host}}:{{OrderProcessingServicePort}}/order/get?id=1",
+					"protocol": "http",
+					"host": [
+						"{{Host}}"
+					],
+					"port": "{{OrderProcessingServicePort}}",
+					"path": [
+						"order",
+						"get"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

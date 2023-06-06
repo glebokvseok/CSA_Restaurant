@@ -1,0 +1,61 @@
+version: "3.5"
+
+services:
+  authentication-service:
+    container_name: authentication-service
+    build: 
+      context: .
+      dockerfile: AuthenticationService/Dockerfile
+    ports:
+      - 5050:5050
+    environment:
+      - RestaurantDataBase__Host=restaurant-database
+      - RestaurantDataBase__Port=5432
+      - RestaurantDataBase__Name=restaurant-database
+      - RestaurantDataBase__User=service
+      - RestaurantDataBase__Password=servicepass
+      - RestaurantDataBase__UsersTableName=users
+      - RestaurantDataBase__SessionsTableName=sessions
+    depends_on:
+      restaurant-database:
+        condition: service_healthy
+    healthcheck:
+      test: "exit 0"
+
+  order-processing-service:
+    container_name: order-processing-service
+    build: 
+      context: .
+      dockerfile: OrderProcessingService/Dockerfile
+    ports:
+      - 5080:5080
+    environment:
+      - RestaurantDataBase__Host=restaurant-database
+      - RestaurantDataBase__Port=5432
+      - RestaurantDataBase__Name=restaurant-database
+      - RestaurantDataBase__User=service
+      - RestaurantDataBase__Password=servicepass
+      - RestaurantDataBase__UsersTableName=users
+      - RestaurantDataBase__DishesTableName=dishes
+      - RestaurantDataBase__OrdersTableName=orders
+      - RestaurantDataBase__OrderDishTableName=order_dish
+    depends_on:
+      restaurant-database:
+        condition: service_healthy
+      authentication-service:
+        condition: service_healthy
+    healthcheck:
+      test: "exit 0"
+
+  restaurant-database:
+    image: postgres:14.4
+    container_name: restaurant-database
+    environment:
+      - POSTGRES_USER=service
+      - POSTGRES_PASSWORD=servicepass
+      - POSTGRES_DB=restaurant-database
+      - PGPORT=5432
+    ports:
+      - 5432:5432
+    healthcheck:
+      test: "exit 0"
